@@ -1,11 +1,21 @@
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import java.util.Locale;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class MainClassTest {
 	MainClass mainClass = new MainClass();
 
+
+	@Test
+	public void testGetClassString() {
+		assertAll(
+				"The string not contains expected word",
+				() -> assertTrue(mainClass.getClassString().contains("Hello")),
+				() -> assertTrue(mainClass.getClassString().toLowerCase(Locale.ROOT).contains("hello"))
+		);
+	}
 
 	@Test
 	public void testGetClassNumber() {
